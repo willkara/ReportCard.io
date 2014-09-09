@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-12 column">
+      <div class="jumbotron">
+        <h1>
+          <%= @user.name%>
+        </h1>
+        <p>
+This is going to be the main profile page for a user. Something will go here sooner or later.     </p>
+
+      </div>
+    </div>
+  </div>
+  <div class="row clearfix">
+    <div class="col-md-6 column profCommentHolder">
+      <%= render 'layouts/commentForms/user_profcomment_listing' %>
+    </div>
+    <div class="col-md-6 column classCommentHolder">
+      <%= render 'layouts/commentForms/user_classcomment_listing' %>
+    </div>
+  </div>
+</div>

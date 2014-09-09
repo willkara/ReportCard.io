@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-12 column">
+      <div class="jumbotron">
+        <h1>
+          Add a Professor!
+        </h1>
+
+
+
+        <%= form_for :ru_professor, url: ru_professors_path, :html => {:class => "form-horizontal"} do |p| %>
+            <% if @professor.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@professor.errors.count, "error") %> prohibited
+                    this professor from being saved:</h2>
+                  <ul>
+                    <% @professor.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                  </ul>
+                </div>
+            <% end %>
+
+            <fieldset>
+
+              <!-- Form Name -->
+              <legend>Create Professor</legend>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="prof_name">Professor Name</label>
+
+                <div class="col-md-4">
+                  <%= p.text_field :first_name, class: "form-control input-md", placeholder: "First Name" %>
+                </div>
+
+                <div class="col-md-4">
+                  <%= p.text_field :last_name, class: "form-control input-md", placeholder: "Last Name" %>
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="prof_email">Professor Email</label>
+
+                <div class="col-md-4">
+                  <%= p.email_field :email, class: "form-control input-md", placeholder: "Email Address" %>
+
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="prof_department">Professor Department</label>
+
+                <div class="col-md-4">
+                  <%= p.select :department_select, options_for_select(Department.all.map { |dpt| [dpt.name, dpt.id] }), {}, {:class => "chosen-select"} %>
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="prof_department">Choose Classes</label>
+
+                <div class="col-md-4">
+                  <%= p.select :ru_class_select, options_for_select(RuClass.all.map { |r| [r.class_title, r.id] }), {}, {:multiple => true, :class => "chosen-select"} %>
+                </div>
+              </div>
+
+
+              <!-- Button -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+
+                <div class="col-md-4">
+
+                  <%= p.submit "Add Professor", class: "btn btn-default" %>
+
+                </div>
+              </div>
+
+            </fieldset>
+        <% end %>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="row clearfix">
+
+  </div>
+</div>

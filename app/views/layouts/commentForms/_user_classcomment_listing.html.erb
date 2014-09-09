@@ -1,0 +1,19 @@
+<h4>Class Comments</h4>
+<div id="classPaginator">
+  <%= paginate @class_comments %>
+</div>
+<div class ="profCommentListing">
+  <% if !@class_comments.nil? %>
+      <% @class_comments.each do |cc| %>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= link_to cc.ru_class.class_title,cc.ru_class %></h3>
+            </div>
+            <div class="panel-body">
+              <%= cc.body %>
+            </div>
+          </div>
+      <% end %>
+  <% end %>
+</div>
+</div>

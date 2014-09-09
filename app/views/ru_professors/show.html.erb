@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row clearfix">
+    <div style="float: left">
+      <div class="jumbotron">
+        <h1>
+          <%= @professor.first_name + " " +@professor.last_name %>
+        </h1>
+
+
+        <h3><%= mail_to @professor.email %></h3>
+
+        <% if !@classes.nil? %>
+            <h4>Classes</h4>
+
+            <% @classes.each do |c| %>
+
+
+                <%= link_to c.class_title, c %> |
+
+            <% end %>
+        <% end %>
+
+        <% if !@department.nil? %>
+            <h4>Department</h4>
+                <%= link_to @department.name, @department %>
+        <% end %>
+
+
+      </div>
+    </div>
+    <div style="float: right">
+      <div class="jumbotron">
+        <div class="ratingsbox"></div>
+        <h2>Ratings</h2>
+
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="commentForm">
+
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <% if user_signed_in? %>
+            <button type="button" class="btn btn-primary commentToggle" data-toggle="collapse" data-target="#commentFormHolder">
+              Add Comment
+            </button>
+
+            <div id="commentFormHolder" class="collapse out"><%= render 'layouts/commentForms/add_prof_comment' %></div>
+        <% else %>
+            <%= render 'layouts/please_sign_in' %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row clearfix">
+
+
+    <div id="commentContainer">
+      <h2>Comments</h2>
+      <% @comments.each do |c| %>
+          <div class="col-md-4 column">
+
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <%= link_to c.user.name, current_user %>
+                </h3>
+              </div>
+              <div class="panel-body">
+                <%= c.body %>
+              </div>
+            </div>
+
+
+          </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

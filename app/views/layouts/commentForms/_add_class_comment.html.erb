@@ -1,0 +1,29 @@
+<%= form_for @class_comment, :html => {:class => "form-horizontal"} do |p| %>
+    <% if @class_comment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@class_comment.errors.count, "error") %> prohibited
+            this class comment from being saved:</h2>
+          <ul>
+            <% @class_comment.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <fieldset>
+
+      <!-- Textarea -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="comment_body"></label>
+
+        <div class="col-md-4">
+          <%= p.text_field :body, class: "form-control input-md", placeholder: "Type Something" %>
+          <%= hidden_field_tag 'submitter_id', current_user.id %>
+          <%= hidden_field_tag 'class_id', @class.id %>
+        </div>
+      </div>
+
+
+    </fieldset>
+<% end %>

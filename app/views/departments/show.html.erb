@@ -1,0 +1,114 @@
+<div class="container">
+  <div class="row clearfix">
+    <div class="leftInfoHolder">
+      <div class="jumbotron">
+        <h1>
+          <%= @department.name %>
+        </h1>
+
+
+        <h3><%= @department.description%></h3>
+
+        <h3><%= @department.location %></h3>
+
+
+
+
+      </div>
+    </div>
+    <div class="rightInfoHolder">
+      <div class="jumbotron">
+        <div class="ratingsbox"></div>
+        <h2>Ratings</h2>
+
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="commentForm">
+
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row clearfix">
+    <div class="col-md-12 column">
+      <div class="tabbable" id="tabs-385972">
+        <ul class="nav nav-tabs nav-justified">
+          <li class="active">
+            <a href="#classlist" data-toggle="tab">Classes</a>
+          </li>
+          <li>
+            <a href="#proflist" data-toggle="tab">Professors</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="classlist">
+
+            <div class="row clearfix">
+
+              <% @classlist.each do |cl| %>
+                  <div class="col-md-4 column">
+
+
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">
+                          <%= link_to cl.class_title, cl %>
+                        </h3>
+                      </div>
+                      <div class="panel-body">
+                        <%= cl.class_synopsis %>
+                      </div>
+                    </div>
+
+
+                  </div>
+              <% end %>
+
+
+            </div>
+
+            </p>
+          </div>
+          <div class="tab-pane" id="proflist">
+            <div class="row clearfix">
+
+              <% @proflist.each do |pl| %>
+                  <div class="col-md-4 column">
+
+
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">
+                          <%= link_to pl.name, pl %>
+                        </h3>
+                      </div>
+                      <div class="panel-body">
+                        <%= pl.description %>
+                      </div>
+                    </div>
+
+
+                  </div>
+              <% end %>
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+  </div>
+</div>

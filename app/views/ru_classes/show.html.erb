@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="row clearfix">
+    <div class="leftInfoHolder">
+      <div class="jumbotron">
+        <h1>
+          <%= @class.class_title %>
+        </h1>
+
+
+        <h3><%= @class.class_code%></h3>
+
+        <h3><%= @class.class_synopsis %></h3>
+
+        <% if !@professors.nil? %>
+            <h4>Professors</h4>
+
+            <% @professors.each do |p| %>
+
+
+                <%= link_to p.first_name + " " +p.last_name, p %> |
+
+            <% end %>
+        <% end %>
+
+        <% if !@departments.nil? %>
+            <h4>Department</h4>
+
+
+
+                <%= link_to @departments.name, @departments %>
+
+
+        <% end %>
+
+
+      </div>
+    </div>
+    <div class="rightInfoHolder">
+      <div class="jumbotron">
+        <div class="ratingsbox"></div>
+        <h2>Ratings</h2>
+
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="commentForm">
+
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <% if user_signed_in? %>
+            <button type="button" class="btn btn-primary commentToggle" data-toggle="collapse" data-target="#commentFormHolder">
+              Add Comment
+            </button>
+
+            <div id="commentFormHolder" class="collapse out">
+              <%= render 'layouts/commentForms/add_class_comment' %>
+            </div>
+        <% else %>
+            <%= render 'layouts/please_sign_in' %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row clearfix">
+
+    <div id="commentContainer">
+      <h2>Comments</h2>
+
+      <% @comments.each do |c| %>
+          <div class="col-md-4 column">
+
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <%= link_to c.user.name, current_user %>
+                </h3>
+              </div>
+              <div class="panel-body">
+                <%= c.body %>
+              </div>
+            </div>
+
+
+          </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

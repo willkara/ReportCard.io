@@ -1,0 +1,18 @@
+<h4>Professor Comments</h4>
+<div id="profPaginator">
+  <%= paginate @prof_comments %>
+</div>
+<div class ="profCommentListing">
+  <% if !@prof_comments.nil? %>
+      <% @prof_comments.each do |pc| %>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= link_to pc.ru_professor.first_name + " " + pc.ru_professor.last_name,pc.ru_professor%></h3>
+            </div>
+            <div class="panel-body">
+              <%= pc.body %>
+            </div>
+          </div>
+      <% end %>
+  <% end %>
+</div>
