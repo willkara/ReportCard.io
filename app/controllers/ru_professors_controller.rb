@@ -14,22 +14,27 @@ class RuProfessorsController < ApplicationController
   def create
     @professor = RuProfessor.new(prof_params)
 
-    @professor.department =Department.find(params[:ru_professor][:department_select])
+    if ((params[:ru_professor][:department_select]).nil?)
+      puts "What should go here?"
+    else
+      @professor.department =Department.find(params[:ru_professor][:department_select])
+    end
 
+    if ((params[:ru_professor][:ru_class_select]).nil?)
+      puts "Gotta figure out what to do in the case of a null object."
+    else
+      class_id=params[:ru_professor][:ru_class_select]
+      class_id.shift
+      class_id.each { |x|
+        @profClassMap = ProfClassMap.new
 
-    if(!params[:ru_professor][:ru_class_select].nil?)
-    class_id=params[:ru_professor][:ru_class_select]
-    class_id.shift
-    class_id.each { |x|
-      @pcmapper = ProfClassMap.new
+        @class=RuClass.find(x)
 
-      @class=RuClass.find(x)
+        @profClassMap.ru_class=@class
+        @profClassMap.ru_professor=@professor
+        @profClassMap.save
 
-      @pcmapper.ru_class=@class
-      @pcmapper.ru_professor=@professor
-      @pcmapper.save
-
-    }
+      }
     end
 
     if @professor.save

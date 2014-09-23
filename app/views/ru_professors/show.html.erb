@@ -9,7 +9,9 @@
 
         <h3><%= mail_to @professor.email %></h3>
 
-        <% if !@classes.nil? %>
+        <% if @classes.nil? %>
+
+        <% else %>
             <h4>Classes</h4>
 
             <% @classes.each do |c| %>
@@ -20,9 +22,10 @@
             <% end %>
         <% end %>
 
-        <% if !@department.nil? %>
+        <% if @department.nil? %>
+        <% else %>
             <h4>Department</h4>
-                <%= link_to @department.name, @department %>
+            <%= link_to @department.name, @department %>
         <% end %>
 
 
