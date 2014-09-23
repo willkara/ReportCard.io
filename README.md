@@ -8,7 +8,4 @@ Anton, we should think of something to put here.
 
 All work should be done on the development branch. As features are tested we will merge them into the master branch.
 
-Development gets deployed to dev.reportcard.io
-
-
-Master gets deployed to reportcard.io
+This code will be accessabile on reportcard.io
