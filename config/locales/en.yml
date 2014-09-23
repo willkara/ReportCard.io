@@ -22,4 +22,6 @@
 en:
   hello: "Hello world"
   title: "ReportCard io"
-  navHeader: "Rutgers ReportCard"
+  navHeader: "ReportCard"
+  institutionName: "Rutgers"
+

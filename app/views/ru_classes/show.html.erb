@@ -7,19 +7,17 @@
         </h1>
 
 
-        <h3><%= @class.class_code%></h3>
+        <h3><%= @class.class_code %></h3>
 
         <h3><%= @class.class_synopsis %></h3>
 
-        <% if !@professors.nil? %>
-            <h4>Professors</h4>
+        <h4>Professors</h4>
 
-            <% @professors.each do |p| %>
+        <% @professors.each do |p| %>
 
 
-                <%= link_to p.first_name + " " +p.last_name, p %> |
+            <%= link_to p.first_name + " " +p.last_name, p %> |
 
-            <% end %>
         <% end %>
 
         <% if !@departments.nil? %>
@@ -27,7 +25,7 @@
 
 
 
-                <%= link_to @departments.name, @departments %>
+            <%= link_to @departments.name, @departments %>
 
 
         <% end %>

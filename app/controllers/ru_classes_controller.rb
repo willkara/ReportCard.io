@@ -15,10 +15,10 @@ class RuClassesController < ApplicationController
   def create
     @class = RuClass.new(class_params)
     @class.department =Department.find(params[:ru_class][:department_select])
+    puts "HELLO"
 
-
-    if(!params[:ru_class][:ru_class_select].nil?)
-
+    if (!params[:ru_class][:ru_class_select].nil?)
+      STDOUT.puts "IM INSIDE"
       prof_id=params[:ru_class][:ru_professor_select]
       prof_id.shift
       prof_id.each { |x|
@@ -33,7 +33,6 @@ class RuClassesController < ApplicationController
       }
 
     end
-
 
 
     if @class.save
