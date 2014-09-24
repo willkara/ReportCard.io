@@ -14,3 +14,4 @@ This code will be accessible on reportcard.io
 
 * Allow editing of professors, classes & departments after creation
 * Create rating system
+* Alphabetize pagination for Professors & Classes!
