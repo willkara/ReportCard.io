@@ -8,11 +8,12 @@
 
 
         <h3><%= mail_to @professor.email %></h3>
+        <h3>Classes</h3>
 
-        <% if @classes.nil? %>
-
+        <% if @classes.size == 0 %>
+            <p>This professor doesn't teach any classes yet! <%= render 'layouts/links/addClassLinker' %>
+            </p>
         <% else %>
-            <h4>Classes</h4>
 
             <% @classes.each do |c| %>
 
@@ -21,10 +22,12 @@
 
             <% end %>
         <% end %>
-
+        <h3>Department</h3>
         <% if @department.nil? %>
+            <p>This professor isn't part of any department yet! <%= render 'layouts/links/addDepartmentLinker' %>
+            </p>
         <% else %>
-            <h4>Department</h4>
+
             <%= link_to @department.name, @department %>
         <% end %>
 
@@ -35,6 +38,7 @@
       <div class="jumbotron">
         <div class="ratingsbox"></div>
         <h2>Ratings</h2>
+            A rating system using stars will go here.
 
       </div>
 
@@ -52,7 +56,7 @@
               Add Comment
             </button>
 
-            <div id="commentFormHolder" class="collapse out"><%= render 'layouts/commentForms/add_prof_comment' %></div>
+            <div id="commentFormHolder" class="collapse out"><%= render 'layouts/comments/add_prof_comment' %></div>
         <% else %>
             <%= render 'layouts/please_sign_in' %>
         <% end %>

@@ -13,19 +13,30 @@
 
         <h4>Professors</h4>
 
-        <% @professors.each do |p| %>
+        <% if @professors.size == 0 %>
+
+            <p>This class doesn't have a professor yet! <%= render 'layouts/links/addProfessorLinker' %>
+
+            </p>
+        <% else %>
+
+            <% @professors.each do |p| %>
 
 
-            <%= link_to p.first_name + " " +p.last_name, p %> |
+                <%= link_to p.first_name + " " +p.last_name, p %> |
 
+            <% end %>
         <% end %>
 
-        <% if !@departments.nil? %>
+        <% if @department.nil? %>
+            <p>This class isn't part of any department yet! <%= render 'layouts/links/addDepartmentLinker' %>
+            </p>
+        <% else %>
+
             <h4>Department</h4>
 
 
-
-            <%= link_to @departments.name, @departments %>
+            <%= link_to @department.name, @department %>
 
 
         <% end %>
@@ -55,7 +66,7 @@
             </button>
 
             <div id="commentFormHolder" class="collapse out">
-              <%= render 'layouts/commentForms/add_class_comment' %>
+              <%= render 'layouts/comments/add_class_comment' %>
             </div>
         <% else %>
             <%= render 'layouts/please_sign_in' %>
