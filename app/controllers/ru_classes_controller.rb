@@ -4,31 +4,33 @@ class RuClassesController < ApplicationController
   end
 
   def show
-    @class = RuClass.find(params[:id])
+    @class = RuClass.friendly.find(params[:id])
     @class_comment =ClassComment.new
     @comments = @class.class_comments.order('updated_at DESC')
     @professors = @class.ru_professors
-    @departments = @class.department
+    @department = @class.department
 
   end
 
   def create
     @class = RuClass.new(class_params)
     @class.department =Department.find(params[:ru_class][:department_select])
-    puts "HELLO"
 
-    if (!params[:ru_class][:ru_class_select].nil?)
+    if params[:ru_class][:ru_class_select].nil?
+      puts "I'll probably put a pop-up here to see if they want to add one."
+    else
+
       STDOUT.puts "IM INSIDE"
       prof_id=params[:ru_class][:ru_professor_select]
       prof_id.shift
       prof_id.each { |x|
-        @pcmapper = ProfClassMap.new
+        @profClassMap = ProfClassMap.new
 
         @prof=RuProfessor.find(x)
 
-        @pcmapper.ru_class=@class
-        @pcmapper.ru_professor=@prof
-        @pcmapper.save
+        @profClassMap.ru_class=@class
+        @profClassMap.ru_professor=@prof
+        @profClassMap.save
 
       }
 

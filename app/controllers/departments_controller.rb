@@ -4,7 +4,7 @@ class DepartmentsController < ApplicationController
   end
 
   def show
-    @department = Department.find(params[:id])
+    @department = Department.friendly.find(params[:id])
     @classlist= @department.ru_classes
     @proflist = @department.ru_professors
   end
@@ -18,7 +18,7 @@ class DepartmentsController < ApplicationController
     else
       render 'new'
     end
-    end
+  end
 
   def new
     @department = Department.new

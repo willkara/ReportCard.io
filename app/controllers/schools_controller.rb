@@ -19,7 +19,7 @@ class SchoolsController < ApplicationController
   end
 
   def show
-    @school = School.find(params[:id])
+    @school = School.friendly.find(params[:id])
   end
 
   def update

@@ -4,24 +4,26 @@ class RuProfessorsController < ApplicationController
   end
 
   def show
-    @professor = RuProfessor.find(params[:id])
+    @professor = RuProfessor.friendly.find(params[:id])
+
     @prof_comment =ProfComment.new
     @comments = @professor.prof_comments.order('updated_at DESC')
     @classes=@professor.ru_classes
     @department=@professor.department
+
   end
 
   def create
     @professor = RuProfessor.new(prof_params)
 
-    if ((params[:ru_professor][:department_select]).nil?)
-      puts "What should go here?"
+    if (params[:ru_professor][:department_select]).nil?
+      puts 'Pop-up for department creation'
     else
       @professor.department =Department.find(params[:ru_professor][:department_select])
     end
 
-    if ((params[:ru_professor][:ru_class_select]).nil?)
-      puts "Gotta figure out what to do in the case of a null object."
+    if (params[:ru_professor][:ru_class_select]).nil?
+      puts 'Pop-up for class creation'
     else
       class_id=params[:ru_professor][:ru_class_select]
       class_id.shift
