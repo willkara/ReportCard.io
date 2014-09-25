@@ -60,13 +60,13 @@
 
               </div>
 
-<div class="form-group">
-              <label class="col-md-4 control-label" for="prof_department">Choose Department</label>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="prof_department">Choose Department</label>
 
-              <div class="col-md-4">
-                <%= p.select :department_select, options_for_select(Department.all.map { |dpt| [dpt.name, dpt.id] }), {}, {:class => "chosen-select"} %>
+                <div class="col-md-4">
+                  <%= p.select :department_select, options_for_select(Department.all.map { |dpt| [dpt.name, dpt.id] }), {}, {:class => "chosen-select"} %>
+                </div>
               </div>
-</div>
 
               <!-- Button -->
               <div class="form-group">

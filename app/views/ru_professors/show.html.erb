@@ -8,10 +8,11 @@
 
 
         <h3><%= mail_to @professor.email %></h3>
+
         <h3>Classes</h3>
 
         <% if @classes.size == 0 %>
-            <p>This professor doesn't teach any classes yet! <%= render 'layouts/links/addClassLinker' %>
+            <p><%= t('professorNoClasses') %> <%= render 'layouts/links/addClassLinker' %>
             </p>
         <% else %>
 
@@ -24,7 +25,7 @@
         <% end %>
         <h3>Department</h3>
         <% if @department.nil? %>
-            <p>This professor isn't part of any department yet! <%= render 'layouts/links/addDepartmentLinker' %>
+            <p><%= t('professorNoDepartment') %> <%= render 'layouts/links/addDepartmentLinker' %>
             </p>
         <% else %>
 
@@ -38,7 +39,7 @@
       <div class="jumbotron">
         <div class="ratingsbox"></div>
         <h2>Ratings</h2>
-            A rating system using stars will go here.
+        A rating system using stars will go here.
 
       </div>
 

@@ -25,3 +25,11 @@ en:
   navHeader: "ReportCard"
   institutionName: "Rutgers"
 
+  add: "add one?"
+  welcome: "Welcome to ReportCard!"
+
+  professorNoDepartment: "This professor isn't part of any department yet!"
+  professorNoClasses: "This professor doesn't teach any classes yet!"
+
+  classNoProfessor: "This class doesn't have a professor yet!"
+  classNoDepartment: "This class isn't part of any department yet!"

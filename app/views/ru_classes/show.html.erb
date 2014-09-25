@@ -15,7 +15,7 @@
 
         <% if @professors.size == 0 %>
 
-            <p>This class doesn't have a professor yet! <%= render 'layouts/links/addProfessorLinker' %>
+            <p> <%= t('classNoProfessor') %> <%= render 'layouts/links/addProfessorLinker' %>
 
             </p>
         <% else %>
@@ -29,7 +29,7 @@
         <% end %>
 
         <% if @department.nil? %>
-            <p>This class isn't part of any department yet! <%= render 'layouts/links/addDepartmentLinker' %>
+            <p> <%= t('classNoDepartment') %> <%= render 'layouts/links/addDepartmentLinker' %>
             </p>
         <% else %>
 
