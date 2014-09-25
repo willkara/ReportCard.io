@@ -1,2 +1,44 @@
-<h1>School#index</h1>
-<p>Find me in app/views/school/index.html.erb</p>
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-12 column">
+      <div class="jumbotron">
+        <h1>
+          The Schools Will Go Here!
+        </h1>
+
+        <p>
+          Blahdy Lorem Ipsum
+
+        </p>
+
+        <p>
+          <%= link_to "Add New School", {:controller => "schools", action: "new"}, class: "btn btn-primary btn-large" %>
+        </p>
+      </div>
+      <div class="row clearfix">
+
+        <div style="display: block"><%= paginate @schools %></div>
+
+        <% @schools.each do |sc| %>
+            <div class="col-md-4 column">
+
+
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">
+                    <%= link_to sc.name + " "+sc.website, sc %>
+                  </h3>
+                </div>
+                <div class="panel-body">
+                  <%= sc.summary %>
+                  </br>
+                </div>
+              </div>
+
+
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
