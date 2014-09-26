@@ -19,6 +19,7 @@ gem 'alphabetical_paginate'
 gem 'kaminari'
 gem 'rack-cache'
 gem 'chosen-rails'
+gem 'unicorn'
 gem 'friendly_id', '~> 5.0.0'
 group :development do
   gem 'better_errors'
@@ -26,10 +27,6 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
-group :development, :test do
-  gem 'thin'
-end
 group :production do
   gem 'mysql2'
-  gem 'puma'
 end
