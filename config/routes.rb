@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
 
-  resources :schools
+  resources :schools, path: nil do
+    resources :ru_classes
+    resources :ru_professors
+  end
 
   get 'about/index'
 
