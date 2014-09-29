@@ -25,8 +25,8 @@ group :development do
   gem 'binding_of_caller', :platforms => [:mri_21]
   gem 'quiet_assets'
   gem 'rails_layout'
-  gem 'mysql2'
+  gem 'sqlite3'
 end
 group :production do
-	gem 'pg'
+  gem 'mysql2'
 end
