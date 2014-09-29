@@ -21,12 +21,8 @@ gem 'rack-cache'
 gem 'chosen-rails'
 gem 'unicorn'
 gem 'friendly_id', '~> 5.0.0'
-group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms => [:mri_21]
   gem 'quiet_assets'
   gem 'rails_layout'
-end
-group :production do
-  
-end
+
