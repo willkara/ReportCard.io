@@ -24,7 +24,17 @@ class DepartmentsController < ApplicationController
     @department = Department.new
   end
 
+  def edit
+    @department = Department.friendly.find(params[:id])
+  end
+
   def update
+    @department = Department.friendly.find(params[:id])
+    if @department.update(department_params)
+      redirect_to @department
+    else
+      redirect_to edit_department_path
+    end
   end
 
   private

@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-12 column">
+      <div class="jumbotron">
+        <h1>
+          Edit Information for <%= @school.name %>
+        </h1>
+
+
+
+        <%= form_for @school, url: school_path(@school), :html => {:class => "form-horizontal"} do |sc| %>
+            <% if @school.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@school.errors.count, "error") %> prohibited
+                    this class from being saved:</h2>
+                  <ul>
+                    <% @school.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                  </ul>
+                </div>
+            <% end %>
+
+            <fieldset>
+
+              <!-- Form Name -->
+              <legend>Edit School</legend>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="prof_name">School Name</label>
+
+                <div class="col-md-4">
+                  <%= sc.text_field :name, class: "form-control input-md", placeholder: "School Name" %>
+                </div>
+
+              </div>
+
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="prof_department">Department Summary</label>
+
+                <div class="col-md-4">
+                  <%= sc.text_field :summary, class: "form-control input-md", placeholder: "Summary of the School" %>
+
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="prof_department">School Address</label>
+
+                <div class="col-md-4">
+                  <%= sc.text_field :address, class: "form-control input-md", placeholder: "Address of the School" %>
+
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="prof_department">School URL</label>
+
+                <div class="col-md-4">
+                  <%= sc.text_field :website, class: "form-control input-md", placeholder: "Website of the School" %>
+
+                </div>
+              </div>
+
+
+              <!-- Button -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+
+                <div class="col-md-4">
+
+                  <%= sc.submit "Save School", class: "btn btn-default" %>
+
+                </div>
+              </div>
+
+            </fieldset>
+        <% end %>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

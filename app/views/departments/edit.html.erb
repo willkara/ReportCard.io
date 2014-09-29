@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-12 column">
+      <div class="jumbotron">
+        <h1>
+          Edit Information for <%= @department.name %>
+        </h1>
+
+
+
+        <%= form_for @department, url: department_path(@department), :html => {:class => "form-horizontal"} do |p| %>
+            <% if @department.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@department.errors.count, "error") %> prohibited
+                    this class from being saved:</h2>
+                  <ul>
+                    <% @department.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                  </ul>
+                </div>
+            <% end %>
+
+            <fieldset>
+
+              <!-- Form Name -->
+              <legend>Edit Department</legend>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="prof_name">Department Name</label>
+
+                <div class="col-md-4">
+                  <%= p.text_field :name, class: "form-control input-md", placeholder: "Department Name" %>
+                </div>
+
+              </div>
+
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="prof_department">Department Description</label>
+
+                <div class="col-md-4">
+                  <%= p.text_field :description, class: "form-control input-md", placeholder: "Description of the department" %>
+
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="prof_department">Department Location</label>
+
+                <div class="col-md-4">
+                  <%= p.text_field :location, class: "form-control input-md", placeholder: "Location of the department" %>
+
+                </div>
+              </div>
+
+
+              <!-- Button -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+
+                <div class="col-md-4">
+
+                  <%= p.submit "Save Department", class: "btn btn-default" %>
+
+                </div>
+              </div>
+
+            </fieldset>
+        <% end %>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="row clearfix">
+
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-12 column">
+      <div class="jumbotron">
+        <h1>
+          Edit Information for <%= @class.class_title %>
+        </h1>
+
+
+
+        <%= form_for @class, url: ru_class_path(@class), :html => {:class => "form-horizontal"} do |cl| %>
+            <% if @class.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@class.errors.count, "error") %> prohibited
+                    this class from being saved:</h2>
+                  <ul>
+                    <% @class.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                  </ul>
+                </div>
+            <% end %>
+
+            <fieldset>
+
+              <!-- Form Name -->
+              <legend>Edit Class</legend>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="prof_name">Class Title</label>
+
+                <div class="col-md-4">
+                  <%= cl.text_field :class_title, class: "form-control input-md", placeholder: "Class Title" %>
+                </div>
+
+                <div class="col-md-4">
+                  <%= cl.text_field :class_code, class: "form-control input-md", placeholder: "Class Code" %>
+                </div>
+              </div>
+
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="prof_department">Class Synopsis</label>
+
+                <div class="col-md-4">
+                  <%= cl.text_field :class_synopsis, class: "form-control input-md", placeholder: "The synopsis of the class" %>
+
+                </div>
+              </div>
+              <!-- Button -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+
+                <div class="col-md-4">
+
+                  <%= cl.submit "Save Class", class: "btn btn-default" %>
+
+                </div>
+              </div>
+
+            </fieldset>
+        <% end %>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="row clearfix">
+
+  </div>
+</div>

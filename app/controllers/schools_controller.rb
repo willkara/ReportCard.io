@@ -22,8 +22,19 @@ class SchoolsController < ApplicationController
     @school = School.friendly.find(params[:id])
   end
 
-  def update
+  def edit
+    @school = School.friendly.find(params[:id])
   end
+
+  def update
+    @school = School.friendly.find(params[:id])
+    if @school.update(school_params)
+      redirect_to @school
+    else
+      redirect_to edit_school_path
+    end
+  end
+
 
   private
   def school_params

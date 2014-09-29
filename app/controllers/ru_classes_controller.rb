@@ -48,9 +48,18 @@ class RuClassesController < ApplicationController
     @class = RuClass.new
   end
 
-  def update
+  def edit
+    @class = RuClass.friendly.find(params[:id])
   end
 
+  def update
+    @class = RuClass.friendly.find(params[:id])
+    if @class.update(class_params)
+      redirect_to @class
+    else
+      redirect_to edit_ru_class_path
+    end
+  end
   private
   def class_params
     params.require(:ru_class).permit(:class_title, :class_code, :class_synopsis)

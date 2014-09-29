@@ -50,7 +50,18 @@ class RuProfessorsController < ApplicationController
     @professor = RuProfessor.new
   end
 
+  def edit
+    @professor = RuProfessor.friendly.find(params[:id])
+    @fullname= @professor.first_name + " " + @professor.last_name
+  end
+
   def update
+    @professor = RuProfessor.friendly.find(params[:id])
+    if @professor.update(prof_params)
+      redirect_to @professor
+    else
+      redirect_to edit_school_path
+    end
   end
 
   private
