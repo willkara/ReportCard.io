@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140924173318) do
+ActiveRecord::Schema.define(version: 20141012044416) do
 
   create_table "class_comments", force: true do |t|
     t.integer  "ru_class_id"
@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(version: 20140924173318) do
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "school_id"
   end
+
+  add_index "departments", ["school_id"], name: "index_departments_on_school_id"
 
   create_table "prof_class_maps", force: true do |t|
     t.integer  "ru_class_id"
