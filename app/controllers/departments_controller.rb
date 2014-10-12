@@ -11,7 +11,9 @@ class DepartmentsController < ApplicationController
 
   def create
     @department = Department.new(department_params)
+    @school = School.find_by_name(params[:school_id])
 
+    @department.school =@school
 
     if @department.save
       redirect_to @department
@@ -25,16 +27,6 @@ class DepartmentsController < ApplicationController
   end
 
   def edit
-    @department = Department.friendly.find(params[:id])
-  end
-
-  def update
-    @department = Department.friendly.find(params[:id])
-    if @department.update(department_params)
-      redirect_to @department
-    else
-      redirect_to edit_department_path
-    end
   end
 
   private
