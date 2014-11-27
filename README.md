@@ -2,6 +2,8 @@ Reportcard Io
 =========
 You can view the site @ http://dev.reportcard.io.
 
+The site is currently down as I am moving/fixing my VPS hosting. It'll be back up shortly!
+
 
 
 ## Contribute   
